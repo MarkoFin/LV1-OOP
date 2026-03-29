@@ -1,0 +1,109 @@
+using System;
+using System.Collections.Generic;
+
+namespace Zadatak_Automobil
+{
+    class Auto
+    {
+        private string sasija;
+        public string marka;
+        public string model;
+        public int godina;
+        public int snaga;
+        public List<int> brzine;
+        public List<string> vlasnici;
+
+        public Auto()
+        {
+            sasija = "000000";
+            marka = "Nepoznato";
+            model = "Nepoznato";
+            godina = 0;
+            snaga = 0;
+            brzine = new List<int>();
+            vlasnici = new List<string>();
+        }
+
+        public Auto(string sa, string ma, string mo, int g, int s)
+        {
+            sasija = sa;
+            marka = ma;
+            model = mo;
+            godina = g;
+            snaga = s;
+            brzine = new List<int>();
+            vlasnici = new List<string>();
+        }
+
+        ~Auto()
+        {
+            Console.WriteLine("Destruktor za auto: " + marka + " " + model);
+        }
+
+        public void DodajBrzinu(int b)
+        {
+            brzine.Add(b);
+        }
+
+        public void DodajVlasnika(string v)
+        {
+            vlasnici.Add(v);
+        }
+
+        public void IspisiAuto()
+        {
+            Console.WriteLine("Sasija: " + sasija);
+            Console.WriteLine("Marka: " + marka);
+            Console.WriteLine("Model: " + model);
+            Console.WriteLine("Godina: " + godina);
+            Console.WriteLine("Snaga: " + snaga);
+        }
+
+        public void IspisiBrzine()
+        {
+            if (brzine.Count == 0)
+            {
+                Console.WriteLine("Nema unesenih brzina.");
+            }
+            else
+            {
+                foreach (int b in brzine)
+                {
+                    Console.WriteLine(b);
+                }
+            }
+        }
+
+        public double ProsjecnaBrzina()
+        {
+            if (brzine.Count == 0)
+                return 0;
+
+            int suma = 0;
+            foreach (int b in brzine)
+            {
+                suma = suma + b;
+            }
+
+            return (double)suma / brzine.Count;
+        }
+
+        public string VratiSasiju()
+        {
+            return sasija;
+        }
+
+        public void PromijeniSasiju(string novaSasija)
+        {
+            if (novaSasija == "")
+            {
+                Console.WriteLine("Sasija ne smije biti prazna!");
+            }
+            else
+            {
+                sasija = novaSasija;
+                Console.WriteLine("Sasija je promijenjena.");
+            }
+        }
+    }
+}
