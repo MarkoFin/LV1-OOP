@@ -1,0 +1,55 @@
+using System;
+using Zadatak_Automobil;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Auto a1 = new Auto("WB123456", "BMW", "M3", 2020, 480);
+        Auto a2 = new Auto("AU654321", "Audi", "A6", 2018, 320);
+        Auto a3 = new Auto("VW987654", "Volkswagen", "Golf 7", 2016, 150);
+
+        a1.DodajBrzinu(120);
+        a1.DodajBrzinu(150);
+        a1.DodajBrzinu(200);
+        a1.DodajVlasnika("Ivan Horvat");
+        a1.DodajVlasnika("Marko Maric");
+
+        a2.DodajBrzinu(100);
+        a2.DodajBrzinu(140);
+        a2.DodajBrzinu(180);
+        a2.DodajVlasnika("Petar Petrovic");
+
+        a3.DodajBrzinu(90);
+        a3.DodajBrzinu(130);
+        a3.DodajBrzinu(170);
+        a3.DodajVlasnika("Ana Kovac");
+        a3.DodajVlasnika("Luka Babic");
+
+        Console.WriteLine("AUTO 1");
+        a1.IspisiAuto();
+        Console.WriteLine("Brzine:");
+        a1.IspisiBrzine();
+        Console.WriteLine("Prosjecna brzina: " + a1.ProsjecnaBrzina());
+        Console.WriteLine("Sasija: " + a1.VratiSasiju());
+        a1.PromijeniSasiju("WB999999");
+        Console.WriteLine("Nova sasija: " + a1.VratiSasiju());
+        Console.WriteLine();
+
+        Console.WriteLine("AUTO 2");
+        a2.IspisiAuto();
+        Console.WriteLine("Brzine:");
+        a2.IspisiBrzine();
+        Console.WriteLine("Prosjecna brzina: " + a2.ProsjecnaBrzina());
+        Console.WriteLine();
+
+        Console.WriteLine("AUTO 3");
+        a3.IspisiAuto();
+        Console.WriteLine("Brzine:");
+        a3.IspisiBrzine();
+        Console.WriteLine("Prosjecna brzina: " + a3.ProsjecnaBrzina());
+        Console.WriteLine();
+
+        Console.ReadLine();
+    }
+}
