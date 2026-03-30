@@ -1,0 +1,97 @@
+using System;
+using System.Collections.Generic;
+
+namespace Zadatak_Student
+{
+    class Student
+    {
+        public string ime;
+        public string prezime;
+        public string OIB;
+        private string JMBAG;
+        public string datum_rodenja;
+        public string prebivaliste;
+        public string studij;
+        public int godina;
+        public float visina;
+        public float tezina;
+        public List<string> predmeti;
+        public List<int> ocjene;
+
+        public Student(string i, string p, string oib, string jmbag, string datum, string preb, string s, int g, float v, float t, List<string> pr, List<int> oc)
+        {
+            ime = i;
+            prezime = p;
+            OIB = oib;
+            JMBAG = jmbag;
+            datum_rodenja = datum;
+            prebivaliste = preb;
+            studij = s;
+            godina = g;
+            visina = v;
+            tezina = t;
+            predmeti = pr;
+            ocjene = oc;
+        }
+
+        ~Student()
+        {
+            Console.WriteLine("Destruktor: " + ime + " " + prezime);
+        }
+
+        public string VratiJMBAG()
+        {
+            return JMBAG;
+        }
+
+        public void IspisiIP()
+        {
+            if (ime == "" || prezime == "")
+                Console.WriteLine("Nedostaju podaci!");
+            else
+                Console.WriteLine(ime + " " + prezime);
+        }
+
+        public void IspisiPredmete()
+        {
+            if (predmeti.Count == 0)
+                Console.WriteLine("Nema predmeta!");
+            else
+                foreach (string p in predmeti)
+                    Console.WriteLine(p);
+        }
+
+        public float ProsjekOcjena()
+        {
+            if (ocjene.Count == 0)
+                return 0;
+
+            float suma = 0;
+            foreach (int o in ocjene)
+                suma = suma + o;
+
+            return suma / ocjene.Count;
+        }
+
+        public void PromijeniJMBAG(string s)
+        {
+            if (s.Length != 10)
+            {
+                Console.WriteLine("JMBAG mora imati 10 znamenki!");
+                return;
+            }
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i] < '0' || s[i] > '9')
+                {
+                    Console.WriteLine("JMBAG mora imati samo brojeve!");
+                    return;
+                }
+            }
+
+            JMBAG = s;
+            Console.WriteLine("JMBAG promijenjen!");
+        }
+    }
+}
