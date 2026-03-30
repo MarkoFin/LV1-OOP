@@ -1,0 +1,20 @@
+public void PromijeniJMBAG(string s)
+{
+    if (s.Length != 10)
+    {
+        Console.WriteLine("JMBAG mora imati 10 znamenki!");
+        return;
+    }
+
+    for (int i = 0; i < s.Length; i++)
+    {
+        if (s[i] < '0' || s[i] > '9')
+        {
+            Console.WriteLine("JMBAG mora imati samo brojeve!");
+            return;
+        }
+    }
+
+    JMBAG = s;
+    Console.WriteLine("JMBAG promijenjen!");
+}
