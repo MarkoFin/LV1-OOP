@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using Zadatak_Student;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+
+        List<string> predmeti = new List<string>();
+        predmeti.Add("Matematika");
+        predmeti.Add("Programiranje");
+        predmeti.Add("Baze");
+
+        List<int> ocjene = new List<int>();
+        ocjene.Add(5);
+        ocjene.Add(4);
+        ocjene.Add(5);
+
+        Student s1 = new Student("Marko", "Maric", "12345678123", "0307019999", "01/01/2000", "Virovitica", "Racunarstvo", 2, 179, 75, predmeti, ocjene);
+
+        Console.WriteLine("Ime i prezime:");
+        s1.IspisiIP();
+
+        Console.WriteLine("JMBAG:");
+        Console.WriteLine(s1.VratiJMBAG());
+
+        Console.WriteLine("Predmeti:");
+        s1.IspisiPredmete();
+        
+        Console.WriteLine("Prosjek:");
+        Console.WriteLine(s1.ProsjekOcjena());
+
+        Console.WriteLine("Test JMBAG:");
+        s1.PromijeniJMBAG("123ABC");      // neispravno
+        s1.PromijeniJMBAG("1234567890");  // ispravno
+
+    }
+}
